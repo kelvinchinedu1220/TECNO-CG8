@@ -42,7 +42,7 @@ if [ -f "$(gettop)/bootable/recovery/orangefox.cpp" ]
 then
 	echo -e "\x1b[96mSetting up OrangeFox build vars...\x1b[m"
 	if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
-		export OF_MAINTAINER="Punkzappa007"
+		export OF_MAINTAINER="nino"
 		export FOX_VERSION=R11.1_1
 		export FOX_BUILD_TYPE="Beta"
    		export TW_DEFAULT_LANGUAGE="en"
@@ -73,7 +73,6 @@ then
 		
 	    	# OTA
 	    	export OF_KEEP_DM_VERITY=1
-	    	export OF_SUPPORT_ALL_BLOCK_OTA_UPDATES=1
 	    	export OF_FIX_OTA_UPDATE_MANUAL_FLASH_ERROR=1
 	    	export OF_DISABLE_MIUI_OTA_BY_DEFAULT=1
 		export OF_USE_NEW_MAGISKBOOT=1
