@@ -77,17 +77,20 @@ then
 	    	export OF_DISABLE_MIUI_OTA_BY_DEFAULT=1
 		export OF_USE_NEW_MAGISKBOOT=1
 		export OF_ENABLE_LPTOOLS=1
-		# screen settings
+		
+               # screen settings
 		export OF_SCREEN_H=2460
 		export OF_STATUS_H=100
 		export OF_ALLOW_DISABLE_NAVBAR=0 # We don't have physical buttons
 		export OF_STATUS_INDENT_LEFT=48
 		export OF_STATUS_INDENT_RIGHT=48
 		export OF_CLOCK_POS=1
+                
 		# maximum permissible splash image size (in kilobytes); do *NOT* increase!
 		export OF_SPLASH_MAX_SIZE=104
 		export OF_PATCH_AVB20=1
 		export FOX_VERSION=R11.1_1
+               
 		# run a process after formatting data to work-around MTP issues
 		export FOX_BUGGED_AOSP_ARB_WORKAROUND="1546300800"
 		export FOX_RECOVERY_BOOT_PARTITION="/dev/block/by-name/boot"
