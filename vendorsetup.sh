@@ -91,7 +91,7 @@ then
 		# run a process after formatting data to work-around MTP issues
 		export FOX_BUGGED_AOSP_ARB_WORKAROUND="1546300800"
 		export FOX_RECOVERY_BOOT_PARTITION="/dev/block/by-name/boot"
-		export OF_AB_DEVICE=1
+		export FOX_AB_DEVICE=1
 		export OF_DONT_PATCH_ON_FRESH_INSTALLATION=1
 		export FOX_USE_SPECIFIC_MAGISK_ZIP="$(gettop)/device/TECNO/CG8/Magisk/Magisk.zip"
 	fi
