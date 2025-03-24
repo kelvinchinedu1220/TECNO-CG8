@@ -47,7 +47,6 @@ TARGET_OTA_ASSERT_DEVICE := CG8
 
 # Kernel
 BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2
-BOARD_KERNEL_CMDLINE += androidboot.force_normal_boot=1
 BOARD_KERNEL_BASE := 0x40078000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_RAMDISK_OFFSET := 0x07c08000
@@ -81,7 +80,6 @@ BOARD_AVB_RECOVERY_KEY_PATH := external/avb/test/data/testkey_rsa2048.pem
 BOARD_AVB_RECOVERY_ALGORITHM := SHA256_RSA2048
 BOARD_AVB_RECOVERY_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
 BOARD_AVB_RECOVERY_ROLLBACK_INDEX_LOCATION := 3
-
 
 # System as root
 BOARD_SUPPRESS_SECURE_ERASE := true
@@ -124,21 +122,18 @@ TARGET_COPY_OUT_SYSTEM_EXT = system_ext
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
 
-# Additional binaries & libraries needed for recovery
-TARGET_RECOVERY_DEVICE_MODULES += \
-    libkeymaster4 \
-    libpuresoftkeymasterdevice
-
 # Hack: prevent anti rollback
 PLATFORM_SECURITY_PATCH := 2099-12-31
 VENDOR_SECURITY_PATCH := 2099-12-31
 PLATFORM_VERSION := 16.1.0
 
-## TWRP-Specific configuration
+device-specific system props
+TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 
+# TWRP-Specific configuration
 TW_THEME := portrait_hdpi
-TW_DEVICE_VERSION := TecnoCamon17Pro
-TW_EXTRA_LANGUAGES := true
+TW_DEVICE_VERSION := Build by Chinedu
+TW_EXTRA_LANGUAGES := false
 TW_INCLUDE_NTFS_3G := true
 TW_HAS_MTP := true
 TW_EXCLUDE_TWRPAPP := true
@@ -164,7 +159,15 @@ TARGET_SCREEN_HEIGHT := 2460
 
 # Decryption
 TW_INCLUDE_CRYPTO := true
-TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
+TW_INCLUDE_CRYPTO_FBE := true
+TW_INCLUDE_FBE_METADATA_DECRYPT := true
+TW_PREPARE_DATA_MEDIA_EARLY := true
+
+# Additional binaries & libraries needed for recovery
+TARGET_RECOVERY_DEVICE_MODULES += \
+    libkeymaster4 \
+    libpuresoftkeymasterdevice
+
+RECOVERY_LIBRARY_SOURCE_FILES += \
     $(TARGET_OUT_SHARED_LIBRARIES)/libkeymaster4.so \
     $(TARGET_OUT_SHARED_LIBRARIES)/libpuresoftkeymasterdevice.so
-TW_INCLUDE_FBE_METADATA_DECRYPT := true
