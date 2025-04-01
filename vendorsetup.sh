@@ -75,9 +75,12 @@ then
 		export FOX_USE_BUSYBOX_BINARY=0
                 export FOX_USE_NANO_EDITOR=0
 		export FOX_EXCLUDE_NANO_EDITOR=1
+		export FOX_USE_FSCRYPT_POLICY=2
+	    	export FOX_DISABLE_EXTRA_ABOUT_PAGE=1
                 export FOX_DELETE_MAGISK_ADDON=1
-		
-	    	# OTA
+		export FOX_DELETE_INITD_ADDON=1
+                
+                # OTA
 	    	export OF_KEEP_DM_VERITY=1
 	    	export OF_FIX_OTA_UPDATE_MANUAL_FLASH_ERROR=1
 	    	export OF_DISABLE_MIUI_OTA_BY_DEFAULT=1
@@ -102,7 +105,6 @@ then
 		export FOX_RECOVERY_BOOT_PARTITION="/dev/block/by-name/boot"
 		export FOX_AB_DEVICE=1
 		export OF_DONT_PATCH_ON_FRESH_INSTALLATION=1
-		export FOX_USE_SPECIFIC_MAGISK_ZIP="$(gettop)/device/TECNO/CG8/Magisk/Magisk.zip"
 	fi
 fi
 #
