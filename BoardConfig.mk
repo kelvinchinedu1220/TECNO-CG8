@@ -150,14 +150,14 @@ TW_PREPARE_DATA_MEDIA_EARLY := true
 TW_DEFAULT_BRIGHTNESS := 1200
 TW_MAX_BRIGHTNESS := 1500
 TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
+TW_EXCLUDE_BASH := true
+TW_EXCLUDE_TZDATA := true
+TW_NO_FASTBOOT_BOOT := true
 TW_USE_FSCRYPT_POLICY := 2
-
-# Device config
 TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
-TW_MAX_BRIGHTNESS := 1500
-TW_DEFAULT_BRIGHTNESS := 1200
+TW_MAX_BRIGHTNESS := 1000
+TW_DEFAULT_BRIGHTNESS := 500
 TW_SCREEN_BLANK_ON_BOOT := true
-
 TW_EXCLUDE_DEFAULT_USB_INIT := true
 RECOVERY_SDCARD_ON_DATA := true
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /config/usb_gadget/g1/functions/mass_storage.0/lun.%d/file
