@@ -1,16 +1,3 @@
-# mount point       fstype    device                                                                flags
-
-# Dynamic partition
-/system_image	    emmc	  /dev/block/bootdevice/by-name/system                                	flags=backup=1;display="System Image";flashimg=1
-/system_ext_image	emmc	  /dev/block/bootdevice/by-name/system_ext                              flags=backup=1;display="System Ext Image";flashimg=1
-/vendor_image	    emmc	  /dev/block/bootdevice/by-name/vendor                              	flags=backup=1;display="Vendor Image";flashimg=1
-/product_image	    emmc	  /dev/block/bootdevice/by-name/product                               	flags=backup=1;display="Product Image";flashimg=1
-/super_image	    emmc	  /dev/block/bootdevice/by-name/super_image                               	flags=backup=1;display="Super Image";flashimg=1
-
-/protect_f          emmc      /dev/block/platform/bootdevice/by-name/protect1                       flags=display="Protect_f";backup=1;
-/protect_s          emmc      /dev/block/platform/bootdevice/by-name/protect2                       flags=display="Protect_s";backup=1;
-/nvdata     # mount point       fstype    device                                                                flags
-
 # Dynamic partition
 /system_image	    emmc	  /dev/block/bootdevice/by-name/system                                	flags=backup=1;display="System Image";flashimg=1
 /system_ext_image	emmc	  /dev/block/bootdevice/by-name/system_ext                              flags=backup=1;display="System Ext Image";flashimg=1
