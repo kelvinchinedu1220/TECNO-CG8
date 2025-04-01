@@ -70,7 +70,12 @@ then
 	    	export FOX_ENABLE_APP_MANAGER=1
 		export FOX_USE_NANO_EDITOR=1
 		export FOX_EXTREME_SIZE_REDUCTION=1
-		
+		export FOX_REMOVE_AAPT=1
+                export FOX_ENABLE_APP_MANAGER=0
+		export FOX_USE_BUSYBOX_BINARY=0
+                export FOX_USE_NANO_EDITOR=0
+		export FOX_EXCLUDE_NANO_EDITOR=1
+  
 	    	# OTA
 	    	export OF_KEEP_DM_VERITY=1
 	    	export OF_FIX_OTA_UPDATE_MANUAL_FLASH_ERROR=1
