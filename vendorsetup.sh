@@ -61,7 +61,7 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
     export FOX_REMOVE_AAPT=1
     export FOX_DISABLE_APP_MANAGER=1
     export FOX_DELETE_AROMAFM=1
-
+    
     export OF_STATUS_INDENT_LEFT=64
     export OF_STATUS_INDENT_RIGHT=64
 
@@ -69,5 +69,7 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 
     export FOX_AB_DEVICE=1
     export OF_USE_GREEN_LED=0
+    export OF_USE_LZMA_COMPRESSION=1
+    export FOX_DRASTIC_SIZE_REDUCTION=1
 fi
 #
