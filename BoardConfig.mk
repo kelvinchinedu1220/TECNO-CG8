@@ -141,13 +141,8 @@ TW_MTP_DEVICE := /dev/mtp_usb
 # Fastbootd
 TW_INCLUDE_FASTBOOTD := true
 
-# Debug
-TWRP_INCLUDE_LOGCAT := true
-TWRP_EVENT_LOGGING := true
-TARGET_USE_LOGD := true
-
-# Tools / Resetprop and magiskboot
-TW_USE_TOOLBOX := true
+# TWRP configuration
+TW_USE_TOOLBOX := false
 TW_EXCLUDE_DEFAULT_USB_INIT := true
 TW_EXCLUDE_SUPERSU := true
 TW_EXCLUDE_BASH := true
@@ -164,9 +159,6 @@ TW_INCLUDE_RESETPROP := true
 TW_INCLUDE_LIBRESETPROP :=true
 TW_INCLUDE_REPACK_TOOL := true
 TW_INCLUDE_LPTOOLS := true
-TW_USE_FSCRYPT_POLICY := 2
-
-# TWRP-Specific configuration
 TW_EXCLUDE_APEX := true
 
 # Density / StatusBar
@@ -184,6 +176,10 @@ TW_STATUS_ICONS_ALIGN := center
 TW_CUSTOM_CPU_POS := "300"
 TW_CUSTOM_CLOCK_POS := "70"
 TW_CUSTOM_BATTERY_POS := "790"
+
+# Debug
+TWRP_INCLUDE_LOGCAT := true
+TARGET_USE_LOGD := true
 
 # Storage
 RECOVERY_SDCARD_ON_DATA := true
