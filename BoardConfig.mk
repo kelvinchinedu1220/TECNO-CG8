@@ -124,52 +124,90 @@ TARGET_COPY_OUT_SYSTEM_EXT = system_ext
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
 
-# Additional binaries & libraries needed for recovery
-TARGET_RECOVERY_DEVICE_MODULES += \
-    libkeymaster4 \
-    libpuresoftkeymasterdevice
-
 # Hack: prevent anti rollback
 PLATFORM_SECURITY_PATCH := 2099-12-31
 VENDOR_SECURITY_PATCH := 2099-12-31
 PLATFORM_VERSION := 99.87.36
 PLATFORM_VERSION_LAST_STABLE := $(PLATFORM_VERSION)
 
-## TWRP-Specific configuration
-TW_THEME := portrait_hdpi
+# TWRP Configuration
+TW_BACKUP_EXCLUSIONS := /Files/fonts
 TW_EXTRA_LANGUAGES := false
-TW_INCLUDE_NTFS_3G := true
+TW_SCREEN_BLANK_ON_BOOT := true
+
+# MTP
 TW_HAS_MTP := true
-TW_EXCLUDE_TWRPAPP := true
-TW_INCLUDE_REPACKTOOLS := true
-TARGET_USES_MKE2FS := true
-TW_EXCLUDE_PYTHON := true
-TW_EXCLUDE_NANO := true
-TW_EXCLUDE_APEX := true
-TW_PREPARE_DATA_MEDIA_EARLY := true
-TW_DEFAULT_BRIGHTNESS := 1200
-TW_MAX_BRIGHTNESS := 1500
-TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
+TW_MTP_DEVICE := /dev/mtp_usb
+
+# Fastbootd
+TW_INCLUDE_FASTBOOTD := true
+
+# Debug
+TWRP_INCLUDE_LOGCAT := true
+TWRP_EVENT_LOGGING := true
+TARGET_USE_LOGD := true
+
+# Tools / Resetprop and magiskboot
+TW_USE_TOOLBOX := true
+TW_EXCLUDE_DEFAULT_USB_INIT := true
+TW_EXCLUDE_SUPERSU := true
 TW_EXCLUDE_BASH := true
 TW_EXCLUDE_TZDATA := true
 TW_NO_FASTBOOT_BOOT := true
+TW_EXCLUDE_PYTHON := true
+TW_EXCLUDE_NANO := true
+TW_EXCLUDE_TWRPAPP := true
+TW_EXCLUDE_LPDUMP := true
+TW_NO_SCREEN_BLANK := true
+TARGET_USES_MKE2FS := true
+TW_INCLUDE_NTFS_3G := true
+TW_INCLUDE_RESETPROP := true
+TW_INCLUDE_LIBRESETPROP :=true
+TW_INCLUDE_REPACK_TOOL := true
+TW_INCLUDE_LPTOOLS := true
 TW_USE_FSCRYPT_POLICY := 2
-TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
-TW_MAX_BRIGHTNESS := 1000
-TW_DEFAULT_BRIGHTNESS := 500
-TW_SCREEN_BLANK_ON_BOOT := true
-TW_EXCLUDE_DEFAULT_USB_INIT := true
+
+# TWRP-Specific configuration
+TW_EXCLUDE_APEX := true
+
+# Density / StatusBar
+TW_FRAMERATE := 60
+TW_BRIGHTNESS_PATH := /sys/class/leds/lcd-backlight/brightness
+TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
+TW_INPUT_BLACKLIST := "hbtp_vm"
+TW_MAX_BRIGHTNESS := 2047
+TW_DEFAULT_BRIGHTNESS := 1200
+TW_THEME := portrait_hdpi
+TARGET_SCREEN_DENSITY := 320
+
+# StatusBar
+TW_STATUS_ICONS_ALIGN := center
+TW_CUSTOM_CPU_POS := "300"
+TW_CUSTOM_CLOCK_POS := "70"
+TW_CUSTOM_BATTERY_POS := "790"
+
+# Storage
 RECOVERY_SDCARD_ON_DATA := true
-TARGET_USE_CUSTOM_LUN_FILE_PATH := /config/usb_gadget/g1/functions/mass_storage.0/lun.%d/file
-TW_HAS_NO_RECOVERY_PARTITION := true
+TW_USE_EXTERNAL_STORAGE := true
+
+# Device 
+TW_DEVICE_VERSION := Nino_Camon_17Pro
 
 BOARD_USES_MTK_HARDWARE := true
 
 TARGET_SCREEN_HEIGHT := 2460
 
+# Additional binaries & libraries needed for recovery
+TARGET_RECOVERY_DEVICE_MODULES += \
+    libkeymaster4 \
+    libpuresoftkeymasterdevice
+
 # Decryption
 TW_INCLUDE_CRYPTO := true
+TW_INCLUDE_CRYPTO_FBE := true
+TW_INCLUDE_FBE_METADATA_DECRYPT := true
+TW_PREPARE_DATA_MEDIA_EARLY := true
+TW_INCLUDE_FBE_METADATA_DECRYPT := true
 TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
     $(TARGET_OUT_SHARED_LIBRARIES)/libkeymaster4.so \
     $(TARGET_OUT_SHARED_LIBRARIES)/libpuresoftkeymasterdevice.so
-TW_INCLUDE_FBE_METADATA_DECRYPT := true
