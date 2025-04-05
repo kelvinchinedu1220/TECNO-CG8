@@ -137,7 +137,7 @@ PLATFORM_VERSION := 16.1.0
 ## TWRP-Specific configuration
 
 TW_THEME := portrait_hdpi
-TW_DEVICE_VERSION := TecnoCamon17Pro
+TW_DEVICE_VERSION := Camon_17Pro_By_kelvin
 TW_EXTRA_LANGUAGES := true
 TW_INCLUDE_NTFS_3G := true
 TW_HAS_MTP := true
@@ -146,6 +146,26 @@ TW_INCLUDE_REPACKTOOLS := true
 TWRP_INCLUDE_LOGCAT := true
 TARGET_USES_LOGD := true
 TARGET_USES_MKE2FS := true
+TW_EXTRA_LANGUAGES := false
+TW_NO_USB_STORAGE := true
+TW_EXCLUDE_MTP := true
+TW_NO_EXFAT := true
+TW_INCLUDE_FB2PNG := false
+TW_EXCLUDE_TZDATA := true
+TW_EXCLUDE_NANO := true
+TW_INCLUDE_DUMLOCK := false
+TW_NO_BATT_PERCENT := true
+TW_NO_CPU_TEMP := true
+TW_INCLUDE_INJECTTWRP := false
+TW_HAS_DOWNLOAD_MODE := false
+TW_NO_HAPTICS := true
+TW_INCLUDE_NTFS_3G := false
+TW_EXCLUDE_TWRPAPP := true
+TW_NO_LEGACY_PROPS := true
+BOARD_HAS_NO_REAL_SDCARD := true
+TW_EXCLUDE_SUPERSU := true
+TWRP_INCLUDE_LOGCAT := false
+TW_USE_TOOLBOX := true
 
 # Device config
 TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
