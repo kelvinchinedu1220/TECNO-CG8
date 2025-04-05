@@ -144,16 +144,11 @@ TW_INCLUDE_FASTBOOTD := true
 # TWRP configuration
 TW_THEME := portrait_hdpi
 TW_DEVICE_VERSION := Build by Chinedu
-TW_EXTRA_LANGUAGES := false
 TW_INCLUDE_NTFS_3G := true
-TW_HAS_MTP := true
-TW_EXCLUDE_TWRPAPP := true
 TW_INCLUDE_REPACKTOOLS := true
 TWRP_INCLUDE_LOGCAT := true
 TARGET_USES_LOGD := true
 TARGET_USES_MKE2FS := true
-
-# Density / StatusBar
 TW_FRAMERATE := 60
 TW_BRIGHTNESS_PATH := /sys/class/leds/lcd-backlight/brightness
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
@@ -181,7 +176,6 @@ TW_NO_LEGACY_PROPS := true
 TW_EXCLUDE_SUPERSU := true
 TWRP_INCLUDE_LOGCAT := false
 TW_USE_TOOLBOX := true
-LZMA_RAMDISK_TARGETS := boot
 
 # Debug
 TWRP_INCLUDE_LOGCAT := true
