@@ -70,6 +70,6 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
     export FOX_AB_DEVICE=1
     export OF_USE_GREEN_LED=0
     export OF_USE_LZMA_COMPRESSION=1
-    export FOX_SIZE_REDUCTION=1
+    export FOX_DRASTIC_SIZE_REDUCTION=1
 fi
 #
