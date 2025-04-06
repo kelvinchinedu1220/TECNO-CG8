@@ -82,7 +82,6 @@ BOARD_AVB_RECOVERY_ALGORITHM := SHA256_RSA2048
 BOARD_AVB_RECOVERY_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
 BOARD_AVB_RECOVERY_ROLLBACK_INDEX_LOCATION := 3
 
-
 # System as root
 BOARD_SUPPRESS_SECURE_ERASE := true
 BOARD_BUILD_SYSTEM_ROOT_IMAGE := false
@@ -127,37 +126,46 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
 # Additional binaries & libraries needed for recovery
 TARGET_RECOVERY_DEVICE_MODULES += \
     libkeymaster4 \
-    libpuresoftkeymasterdevice
+    libpuresoftkeymasterdevice \
+    ashmemd_aidl_interface-cpp \
+    libashmemd_client
+
+TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libkeymaster4.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libpuresoftkeymasterdevice.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/ashmemd_aidl_interface-cpp.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libashmemd_client.so
 
 # Hack: prevent anti rollback
 PLATFORM_SECURITY_PATCH := 2099-12-31
 VENDOR_SECURITY_PATCH := 2099-12-31
-PLATFORM_VERSION := 99.87.36
-PLATFORM_VERSION_LAST_STABLE := $(PLATFORM_VERSION)
+PLATFORM_VERSION := 16.1.0
+TW_INCLUDE_CRYPTO := true
+TW_INCLUDE_CRYPTO_FBE := true
+TW_INCLUDE_FBE_METADATA_DECRYPT := true
 
 ## TWRP-Specific configuration
 TW_THEME := portrait_hdpi
-TW_EXTRA_LANGUAGES := false
-TW_INCLUDE_NTFS_3G := true
-TW_HAS_MTP := true
-TW_EXCLUDE_TWRPAPP := true
-TW_INCLUDE_REPACKTOOLS := true
+RECOVERY_SDCARD_ON_DATA := true
+TW_INCLUDE_RESETPROP := true
 TWRP_INCLUDE_LOGCAT := true
 TARGET_USES_LOGD := true
-TARGET_USES_MKE2FS := true
-TW_INCLUDE_PYTHON := false
-TW_INCLUDE_NANO := false
-TW_EXCLUDE_APEX := true
-TW_PREPARE_DATA_MEDIA_EARLY := true
-TW_DEFAULT_BRIGHTNESS := 1200
-TW_MAX_BRIGHTNESS := 1500
-TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
-
-# Device config
+TW_EXCLUDE_DEFAULT_USB_INIT := true
+TW_EXTRA_LANGUAGES := true
+TW_INCLUDE_NTFS_3G := true
+TW_USE_TOOLBOX := true
 TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
 TW_MAX_BRIGHTNESS := 2047
 TW_DEFAULT_BRIGHTNESS := 1200
+TW_NO_SCREEN_BLANK := true
 TW_SCREEN_BLANK_ON_BOOT := true
+TW_Y_OFFSET := 115
+TW_H_OFFSET := -115
+TARGET_USES_MKE2FS := true
+TW_EXCLUDE_APEX := true
+TW_USE_FSCRYPT_POLICY := 2
+
+TW_DEVICE_VERSION := Nino_Camon_17Pro
 
 TW_EXCLUDE_DEFAULT_USB_INIT := true
 RECOVERY_SDCARD_ON_DATA := true
@@ -167,15 +175,6 @@ TW_HAS_NO_RECOVERY_PARTITION := true
 BOARD_USES_MTK_HARDWARE := true
 
 TARGET_SCREEN_HEIGHT := 2460
-
-# Decryption
-TW_INCLUDE_CRYPTO := true
-TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libkeymaster4.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libpuresoftkeymasterdevice.so
-TW_INCLUDE_FBE_METADATA_DECRYPT := true
-TW_USE_FSCRYPT_POLICY := 2
-TW_FORCE_KEYMASTER_VER := true
 
 # PB Torch
 PB_TORCH_PATH := "/sys/devices/virtual/torch/torch/torch_level"
