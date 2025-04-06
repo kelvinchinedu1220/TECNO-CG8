@@ -159,6 +159,10 @@ TARGET_USES_MKE2FS := true
 TW_EXCLUDE_APEX := true
 TW_USE_FSCRYPT_POLICY := 2
 
+USE_RECOVERY_INSTALLER := true
+
+RECOVERY_INSTALLER_PATH := bootable/recovery/installer
+
 TW_DEVICE_VERSION := Nino_Camon_17Pro
 
 # Device
